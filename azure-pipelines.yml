@@ -56,4 +56,4 @@ stages:
       runOnce:
         deploy:
           steps:
-          – script: echo "hello, qa world !!!"
+          – script: echo "hello, prod world !!!"
