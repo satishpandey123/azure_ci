@@ -15,6 +15,19 @@ resources:
 pool:
   vmImage: 'ubuntu-latest'
 
+steps:
+- task: DotNetCoreCLI@2
+  displayName: 'Install dotnetsay'
+  inputs:
+    command: custom
+    custom: tool
+    arguments: 'install -g dotnetsay'
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: '**/*Tests/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+    
 stages:
   – stage: Build
     jobs:
